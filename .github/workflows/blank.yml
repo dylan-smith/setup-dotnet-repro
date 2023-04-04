@@ -7,49 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-v3-0-0:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          repository: github/gh-gei
-          
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3.0.0
-        with:
-          dotnet-version: 6.0.x
-
-      - name: Full Build
-        run: |
-          dotnet publish src/ado2gh/ado2gh.csproj -c Release -o dist/win-x64/ -r win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true /p:DebugType=None /p:IncludeNativeLibrariesForSelfExtract=true
-          dotnet publish src/ado2gh/ado2gh.csproj -c Release -o dist/win-x86/ -r win-x86 -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true /p:DebugType=None /p:IncludeNativeLibrariesForSelfExtract=true
-          dotnet publish src/gei/gei.csproj -c Release -o dist/win-x64/ -r win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true /p:DebugType=None /p:IncludeNativeLibrariesForSelfExtract=true
-          dotnet publish src/gei/gei.csproj -c Release -o dist/win-x86/ -r win-x86 -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true /p:DebugType=None /p:IncludeNativeLibrariesForSelfExtract=true
-          dotnet publish src/bbs2gh/bbs2gh.csproj -c Release -o dist/win-x64/ -r win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true /p:DebugType=None /p:IncludeNativeLibrariesForSelfExtract=true
-          dotnet publish src/bbs2gh/bbs2gh.csproj -c Release -o dist/win-x86/ -r win-x86 -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true /p:DebugType=None /p:IncludeNativeLibrariesForSelfExtract=true
-
   build-v2:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          repository: github/gh-gei
-          
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v2
-        with:
-          dotnet-version: 6.0.x
-
-      - name: Full Build
-        run: |
-          dotnet publish src/ado2gh/ado2gh.csproj -c Release -o dist/win-x64/ -r win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true /p:DebugType=None /p:IncludeNativeLibrariesForSelfExtract=true
-          dotnet publish src/ado2gh/ado2gh.csproj -c Release -o dist/win-x86/ -r win-x86 -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true /p:DebugType=None /p:IncludeNativeLibrariesForSelfExtract=true
-          dotnet publish src/gei/gei.csproj -c Release -o dist/win-x64/ -r win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true /p:DebugType=None /p:IncludeNativeLibrariesForSelfExtract=true
-          dotnet publish src/gei/gei.csproj -c Release -o dist/win-x86/ -r win-x86 -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true /p:DebugType=None /p:IncludeNativeLibrariesForSelfExtract=true
-          dotnet publish src/bbs2gh/bbs2gh.csproj -c Release -o dist/win-x64/ -r win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true /p:DebugType=None /p:IncludeNativeLibrariesForSelfExtract=true
-          dotnet publish src/bbs2gh/bbs2gh.csproj -c Release -o dist/win-x86/ -r win-x86 -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true /p:DebugType=None /p:IncludeNativeLibrariesForSelfExtract=true
-
-  simple-v2:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -64,7 +22,7 @@ jobs:
       - name: Build
         run: dotnet publish src/ado2gh/ado2gh.csproj -c Release -o dist/win-x64/ -r win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true /p:DebugType=None /p:IncludeNativeLibrariesForSelfExtract=true
         
-  simple-v3-0-0:
+  build-v3-0-0:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
